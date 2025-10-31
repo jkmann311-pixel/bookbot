@@ -1,10 +1,23 @@
-# figure out how to open the frankenstein text file
+# takes a filepath as an input, specifically a filepath to a text file. then it opens and reads that text file to a string.
 def get_book_text(filepath):
     with open(filepath) as f:
-        book_text = f.read()
-    return book_text
+        file_contents = f.read()
 
-#def main():
-    #return get_book_text(~/bookbot/books/frankenstain.txt)
+    return file_contents
 
-#main
+def word_count(filepath):
+    # takes the text from the book and stores it in a string
+    book_text = get_book_text(filepath)
+    # i want to get that string and count how many words there are. maybe len(split(book_text))
+    number_of_words = len(book_text.split())
+    
+    return number_of_words
+
+def main():
+    #book_text = get_book_text('books/frankenstein.txt')
+    #return print(book_text)
+    words = word_count('books/frankenstein.txt')
+    return print(f"Found {words} total words")
+
+
+main()
